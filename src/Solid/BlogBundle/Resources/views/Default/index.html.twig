@@ -1,0 +1,31 @@
+{% extends "SolidBlogBundle::layout.html.twig" %}
+
+{% block title %}Blog articles{% endblock%}
+
+{% block content %}
+
+    <section class="main-col">
+        {% for post in pagination %}
+            <article class="blog">
+                <header>
+                    <h2><a href="/article/{{ post.slug }}">{{ post.name }}</a></h2>
+                </header>
+                <div class="snippet">
+                    <p>{{ post.intro }}</p>
+                    <p class="continue"><a href="/article/{{ post.slug }}">Continue reading...</a></p>
+                    {% if app.user and (app.user.id == post.author.id) %}
+                        <p class="remove"><a href="/remove/{{ post.id }}">Remove</a></p>
+                    {% endif %}
+                </div>
+                <footer class="meta">
+                    <p>Posted by <span class="highlight">{{ post.author.username }}</span> at {{ post.createdAt|date("F jS \\a\\t g:ia") }} in {{ post.category }}</p>
+                </footer>
+            </article>
+        {% endfor %}
+    </section>
+
+    <div class="navigation">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+
+{% endblock %}

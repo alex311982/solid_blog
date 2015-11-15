@@ -1,0 +1,15 @@
+solid_blog_homepage:
+    path:     /
+    defaults: { _controller: SolidBlogBundle:Default:index }
+
+solid_blog_remove_article:
+    path:     /remove/{articleId}
+    defaults: { _controller: SolidBlogBundle:Default:remove }
+
+solid_blog_show_article:
+    path:     /article/{slug}
+    defaults: { _controller: SolidBlogBundle:Default:show }
+
+solid_blog_new_article:
+    path:     /create
+    defaults: { _controller: SolidBlogBundle:Default:create }

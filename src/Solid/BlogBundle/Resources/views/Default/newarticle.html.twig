@@ -1,0 +1,16 @@
+{% extends "SolidBlogBundle::layout.html.twig" %}
+
+{% block title %}New article form{% endblock%}
+
+{% block content %}
+
+    {% if message is defined %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}

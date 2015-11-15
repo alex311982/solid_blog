@@ -1,0 +1,19 @@
+{% extends "SolidBlogBundle::layout.html.twig" %}
+
+
+{% block title %}{{ article.name }}{% endblock%}
+
+{% block content %}
+
+    <section class="main-col">
+        <article class="blog">
+            <header>
+                <h2>{{ article.name }}</h2>
+            </header>
+            <div>
+                <p>{{ article.content }}</p>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}
